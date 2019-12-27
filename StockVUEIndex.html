@@ -1,0 +1,1065 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Stock VUE Cost Estimate Generator</title>
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.js"></script>
+
+  <link href="StyleSheet.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <h1>StockVUE Cost Estimate Generator</h1>
+  <div id="StockVUEform" class="formcontainer">
+    <h2><u>Scales</u></h2>
+    <div class="container">
+      <div class="item2"> </div>
+
+      <div class="item1"> Capacities (kg)</div>
+      <div class="item1"> Quantity </div>
+      <div class="item1"> Price </div>
+      <div class="item1"> Total </div>
+
+      <div class="item1"> Mini </div>
+      <div class="item1"> </div>
+      <div class="item1">  </div>
+      <div class="item1">  </div>
+      <div class="item1">  </div>
+
+      <div class="item1">  </div>
+      <div class="item1"> 1 </div>
+      <div class="item1">
+        <input class = "mini" list='options' id="mini1quantity" type="text">
+        <datalist id='options'>
+          <option>10</option>
+          <option>50</option>
+          <option>100</option>
+          <option>500</option>
+          <option>1000</option>
+        </datalist>
+       </input>
+     </div>
+     <div class="mini1price"> </div>
+     <div id="mini1total" class="mini1total"> </div>
+
+
+     <div class="item1">  </div>
+     <div class="item1"> 2 </div>
+     <div class="item1">
+       <input class = "mini" list='options' id="mini2quantity" type="text">
+       <datalist id='options'>
+         <option>10</option>
+         <option>50</option>
+         <option>100</option>
+         <option>500</option>
+         <option>1000</option>
+       </datalist>
+      </input>
+    </div>
+    <div class="mini2price"> </div>
+    <div id="mini2total" class="mini2total"> </div>
+
+    <div class="item1">  </div>
+    <div class="item1"> 3 </div>
+    <div class="item1">
+      <input class = "mini" list='options' id="mini3quantity" type="text">
+      <datalist id='options'>
+        <option>10</option>
+        <option>50</option>
+        <option>100</option>
+        <option>500</option>
+        <option>1000</option>
+      </datalist>
+     </input>
+   </div>
+   <div class="mini3price"> </div>
+   <div  id="mini3total" class="mini3total"> </div>
+
+   <div class="item1">  </div>
+   <div class="item1">  </div>
+   <div id="miniquantsubtotal" class="item1">  </div>
+   <div class="item1">  </div>
+   <div id="minisubtotal" class="item1">  </div>
+
+  </div>
+
+  <div class="container">
+    <div class="item2"> </div>
+
+    <div class="item1"></div>
+    <div class="item1">  </div>
+    <div class="item1">  </div>
+    <div class="item1">  </div>
+
+    <div class="item1"> Small </div>
+    <div class="item1"> </div>
+    <div class="item1">  </div>
+    <div class="item1">  </div>
+    <div class="item1">  </div>
+
+    <div class="item1">  </div>
+    <div class="item1"> 3 </div>
+    <div class="item1">
+      <input class = "mini" list='options' id="small1quantity" type="text">
+      <datalist id='options'>
+        <option>10</option>
+        <option>50</option>
+        <option>100</option>
+        <option>500</option>
+        <option>1000</option>
+      </datalist>
+     </input>
+   </div>
+   <div class="small1price"> </div>
+   <div id="small1total" class="small1total"> </div>
+
+
+   <div class="item1">  </div>
+   <div class="item1"> 5 </div>
+   <div class="item1">
+     <input class = "mini" list='options' id="small2quantity" type="text">
+     <datalist id='options'>
+       <option>10</option>
+       <option>50</option>
+       <option>100</option>
+       <option>500</option>
+       <option>1000</option>
+     </datalist>
+    </input>
+  </div>
+  <div class="small2price"> </div>
+  <div id="small2total" class="small2total"> </div>
+
+  <div class="item1">  </div>
+  <div class="item1"> 10 </div>
+  <div class="item1">
+    <input class = "mini" list='options' id="small3quantity" type="text">
+    <datalist id='options'>
+      <option>10</option>
+      <option>50</option>
+      <option>100</option>
+      <option>500</option>
+      <option>1000</option>
+    </datalist>
+   </input>
+ </div>
+ <div class="small3price"> </div>
+ <div id="small3total" class="small3total"> </div>
+
+ <div class="item1">  </div>
+ <div class="item1">  </div>
+ <div id="smallquantsubtotal" class="item1">  </div>
+ <div class="item1">  </div>
+ <div id="smallsubtotal" class="item1">  </div>
+
+
+</div>
+
+<div class="container">
+  <div class="item2"> </div>
+
+  <div class="item1"></div>
+  <div class="item1">  </div>
+  <div class="item1">  </div>
+  <div class="item1">  </div>
+
+  <div class="item1"> Medium </div>
+  <div class="item1"> </div>
+  <div class="item1">  </div>
+  <div class="item1">  </div>
+  <div class="item1">  </div>
+
+  <div class="item1">  </div>
+  <div class="item1"> 10 </div>
+  <div class="item1">
+    <input class = "medium1quantity" list='options' id="medium1quantity" type="text">
+    <datalist id='options'>
+      <option>10</option>
+      <option>50</option>
+      <option>100</option>
+      <option>500</option>
+      <option>1000</option>
+    </datalist>
+   </input>
+ </div>
+ <div class="medium1price"> </div>
+ <div id="medium1total" class="medium1total"> </div>
+
+
+ <div class="item1">  </div>
+ <div class="item1"> 20 </div>
+ <div class="item1">
+   <input class = "mini" list='options' id="medium2quantity" type="text">
+   <datalist id='options'>
+     <option>10</option>
+     <option>50</option>
+     <option>100</option>
+     <option>500</option>
+     <option>1000</option>
+   </datalist>
+  </input>
+</div>
+<div class="medium2price"> </div>
+<div id="medium2total" class="medium2total"> </div>
+
+<div class="item1">  </div>
+<div class="item1"> 50 </div>
+<div class="item1">
+  <input class = "mini" list='options' id="medium3quantity" type="text">
+  <datalist id='options'>
+    <option>10</option>
+    <option>50</option>
+    <option>100</option>
+    <option>500</option>
+    <option>1000</option>
+  </datalist>
+ </input>
+</div>
+<div class="medium3price"> </div>
+<div id="medium3total" class="medium3total"> </div>
+
+<div class="item1">  </div>
+<div class="item1">  </div>
+<div id="mediumquantsubtotal" class="item1">  </div>
+<div class="item1">  </div>
+<div id="mediumsubtotal" class="mediumsubtotal">  </div>
+
+
+</div>
+
+
+<div class="container">
+  <div class="item2"> </div>
+
+  <div class="item1"> </div>
+  <div class="item1">  </div>
+  <div class="item1">  </div>
+  <div class="item1">  </div>
+
+  <div class="item1"> Large </div>
+  <div class="item1"> </div>
+  <div class="item1">  </div>
+  <div class="item1">  </div>
+  <div class="item1">  </div>
+
+  <div class="item1">  </div>
+  <div class="item1"> 50 </div>
+  <div class="item1">
+    <input class = "mini" list='options' id="large1quantity" type="text">
+    <datalist id='options'>
+      <option>10</option>
+      <option>50</option>
+      <option>100</option>
+      <option>500</option>
+      <option>1000</option>
+    </datalist>
+   </input>
+ </div>
+ <div class="large1price"> </div>
+ <div id="large1total" class="large1total"> </div>
+
+
+ <div class="item1">  </div>
+ <div class="item1"> 100 </div>
+ <div class="item1">
+   <input class = "mini" list='options' id="large2quantity" type="text">
+   <datalist id='options'>
+     <option>10</option>
+     <option>50</option>
+     <option>100</option>
+     <option>500</option>
+     <option>1000</option>
+   </datalist>
+  </input>
+</div>
+<div class="large2price"> </div>
+<div id="large2total" class="large2total"> </div>
+
+<div class="item1">  </div>
+<div class="item1"> 250 </div>
+<div class="item1">
+  <input class = "mini" list='options' id="large3quantity" type="text">
+  <datalist id='options'>
+    <option>10</option>
+    <option>50</option>
+    <option>100</option>
+    <option>500</option>
+    <option>1000</option>
+  </datalist>
+ </input>
+</div>
+<div class="large3price"> </div>
+<div id="large3total" class="large3total"> </div>
+
+<div class="item1">  </div>
+<div class="item1">  </div>
+<div id="largequantsubtotal" class="item1">  </div>
+<div class="item1">  </div>
+<div id="largesubtotal" class="item1">  </div>
+
+
+</div>
+
+<h2><u>Interfaces</u></h2>
+
+<div class="smallcontainer">
+  <div class="item2"> SC-1200Z </div>
+  <div class="item2"> </div>
+
+  <div class="item1">
+    <input class = "interface" list='options' id="interfacequantity" type="text">
+    <datalist id='options'>
+      <option>1</option>
+      <option>20</option>
+      <option>50</option>
+      <option>100</option>
+      <option>1000</option>
+    </datalist>
+  </input>
+  </div>
+  <div class="interfaceprice"> </div>
+  <div id="interfacetotal" class="interfacetotal"> </div>
+</div>
+
+<h2><u>Software</u></h2>
+<div class="mediumcontainer">
+  <div class="item1"> </div>
+  <div class="item1"> Years </div>
+  <div class="item1"> Scales </div>
+  <div class="item1"> Price/Bin </div>
+  <div class="item1"> Total  </div>
+
+  <div class="item1"> </div>
+  <div class="item1">
+    <select list='options' class="softwareyears" id="softwareyears"> </select>
+    <datalist>
+      <option value = 1>
+      <option value = 2>
+      <option value = 3>
+      <option value = 5>
+    </datalist>
+    </input>
+  </div>
+  <div class="scalestotal" id="scalestotal"> </div>
+  <div class="priceperbin" id="priceperbin"> </div>
+  <div id="softwaretotal" class="softwaretotal"> </div>
+</div>
+
+<h2> Handling & Packaging Fee</h2>
+<div class="mediumcontainer">
+  <div class="item1"> </div>
+  <div class="item1" > Scales </div>
+  <div class="item1"> Price/Scale </div>
+  <div class="item1"> </div>
+  <div class="item1"> Total  </div>
+
+  <div class="item1"> </div>
+  <div class="scalestotal" id="scalestotal">  </div>
+  <div class="item1" id="handlingprice"> </div>
+  <div class="item1"> </div>
+  <div class="item1" id="handlingtotal"> </div>
+ </div>
+
+<h2> Shipping </h2>
+<div class="mediumcontainer">
+  <div class="item1"> </div>
+  <div class="item1" > Scales </div>
+  <div class="item1"> Price/Scale </div>
+  <div class="item1"> </div>
+  <div class="item1"> Total  </div>
+
+  <div class="item1"> </div>
+  <div class="scalestotal" id="scalestotal">  </div>
+  <div class="item1" id="shippingprice"> </div>
+  <div class="item1"> </div>
+  <div class="item1" id="shippingtotal"> </div>
+  </div>
+</div>
+
+<div class="estimatecontainer">
+  <h4> Total Estimate </h4>
+  <div class="item1"></div>
+  <div class="item1"></div>
+  <div class="item1"></div>
+  <div class="item1" ></div>
+
+
+  <div class="item1"></div>
+  <div class="item1">Hardware Cost</div>
+  <div class="item1"></div>
+  <div class="item1"></div>
+  <div class="item1" id="hardwarecost"></div>
+
+  <div class="item1"></div>
+  <div class="item1">Software Cost</div>
+  <div class="item1"></div>
+  <div class="item1"></div>
+  <div class="softwaretotal" id="softwaretotal"></div>
+
+  <div class="item1"></div>
+  <div class="item1">Packaging & Shipping Cost</div>
+  <div class="item1"></div>
+  <div class="item1"></div>
+  <div class="item1" id="packagingshippingcost"></div>
+
+
+  <div class="item1"></div>
+  <div class='item1'>Estimated Cost Total </div>
+  <div class="item1"></div>
+  <div class="item1"></div>
+  <div class="item1" id="total"></div>
+
+
+</div>
+
+
+<br> </br>
+<div class="smallcontainer">
+
+  <div>
+    <div class="submittotal"> </div>
+    <form id="fr1">
+      <input type="text" id="name"  placeholder="Enter Name: "></input>
+      <input type="email" id="email" placeholder="Enter Email: "></input>
+      <input type="text" id="phone" placeholder="Enter Phone Number: "></input>
+
+      <button class="submit" id="bt1" value="View PDF" onclick="generate()"/>View PDF</button>
+      <button class="submit" id="bt2" value="Send Email" onclick="generate()"/>Send Email</button>
+
+    </form>
+  </div>
+</div>
+
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2> Order Confirmation </h2>
+    <div id="orderformpdf"> </div>
+  </div>
+</div>
+
+</body>
+
+<script>
+//prices
+var miniprices = [75, 70, 65];
+var smallprices = [125, 99, 89];
+var mediumprices = [199, 149, 125];
+var largeprices = [549, 399, 349];
+
+var interfaceprices = [999, 899, 749, 499];
+var softwareprices = [1, 0.9, 0.85, 0.75];
+
+var handlingprice = 10;
+var shippingprice = 5;
+
+margins = {
+  top: 70,
+  bottom: 40,
+  left: 30,
+  width: 550
+};
+
+
+function getSumTotal(ids) {
+  var idList = ids.split(" ");
+  var sum = 0;
+  for (var i = 0; i < idList.length; i++) {
+    var total = document.getElementById(idList[i]).innerHTML;
+    if(isNaN(parseInt(total))) {
+      total = total.substring(2);
+    }
+    if (!isNaN(parseInt(total))) {
+      sum += parseInt(total);
+      console.log(sum);
+    }
+  }
+  return sum;
+}
+
+function updateInputSumTotal(ids, idToReplace) {
+  var idList = ids.split(" ");
+  var sum = 0;
+  for (var i = 0; i < idList.length; i++) {
+    var total = document.getElementById(idList[i]).value;
+    if (!isNaN(parseInt(total))) {
+      sum += parseInt(total);
+      console.log(sum);
+    }
+  }
+  $(idToReplace).replaceWith("<div id = " + idToReplace.substring(1) + ">" + sum + " </div>");
+  return sum;
+}
+
+var updateModalSumTotal = function(ids) {
+  sum = getSumTotal(ids);
+  $(".modaltotal").replaceWith("<p class = 'modaltotal'>Thank you for placing an order. Your estimated total is: $" + sum + "</p>");
+}
+
+var generate = function()
+{
+  var pdf = new jsPDF('p', 'pt', 'a4');
+  console.log('generate');
+  pdf.setFontSize(18);
+  pdf.fromHTML(document.getElementById('StockVUEform'),
+  margins.left, // x coord
+  margins.top,
+  {
+    // y coord
+    width: margins.width// max width of content on PDF
+  },function(dispose) {
+    pdf.save('Test.pdf');
+  },
+  margins);
+  PDFObject.embed('Test.pdf', "#orderformpdf");
+  console.log('embeded');
+  var iframe = document.createElement('iframe');
+  iframe.setAttribute('style','position:absolute;right:0; top:0; bottom:0; height:100%; width:650px; padding:20px;');
+  document.body.appendChild(iframe);
+
+  iframe.src = pdf.output('datauristring');
+};
+
+//jQuery functions
+$(function(){
+  jQuery(document).ready(function() {
+    $(".mini1price").replaceWith("<div id = 'mini1price' class = 'mini1price'> $" + miniprices[0] + " </div>");
+    $(".mini2price").replaceWith("<div id = 'mini2price' class = 'mini2price'> $" + miniprices[0] + " </div>");
+    $(".mini3price").replaceWith("<div id = 'mini3price' class = 'mini3price'> $" + miniprices[0] + " </div>");
+
+    $(".small1price").replaceWith("<div id = 'small1price' class = 'small1price'> $" + smallprices[0] + " </div>");
+    $(".small2price").replaceWith("<div id = 'small2price' class = 'small2price'> $" + smallprices[0] + " </div>");
+    $(".small3price").replaceWith("<div id = 'small3price' class = 'small3price'> $" + smallprices[0] + " </div>");
+
+    $(".medium1price").replaceWith("<div id = 'medium1price' class = 'medium1price'> $" + mediumprices[0] + " </div>");
+    $(".medium2price").replaceWith("<div id = 'medium2price' class = 'medium2price'> $" + mediumprices[0] + " </div>");
+    $(".medium3price").replaceWith("<div id = 'medium3price' class = 'medium3price'> $" + mediumprices[0] + " </div>");
+
+    $(".large1price").replaceWith("<div id = 'large1price' class = 'large1price'> $" + largeprices[0] + " </div>");
+    $(".large2price").replaceWith("<div id = 'large2price' class = 'large2price'> $" + largeprices[0] + " </div>");
+    $(".large3price").replaceWith("<div id = 'large3price' class = 'large3price'> $" + largeprices[0] + " </div>");
+
+    $(".interfaceprice").replaceWith("<div class = 'interfaceprice'>  $" + interfaceprices[0] + " </div>");
+    $(".priceperbin").replaceWith("<div class='priceperbin' id='priceperbin'> $" + softwareprices[0] + "</div>");
+    var list1 = document.getElementById("softwareyears");
+
+    list1.options[0] = new Option(1);
+    list1.options[1] = new Option(2);
+    list1.options[2] = new Option(3);
+    list1.options[3] = new Option(5);
+
+    $("#handlingprice").replaceWith("<div class='item1' id='handlingprice'> $"+handlingprice+" </div>");
+    $("#shippingprice").replaceWith("<div class='item1' id='shippingprice'> $"+shippingprice+" </div>");
+  });
+
+
+  $("#large1quantity").keyup(function(event){
+    var this_quant = document.getElementById("large1quantity").value;
+    this_quant = parseInt(this_quant);
+    scalesTotal =  getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal");
+
+    if(this_quant < 10) {
+      $(".large1price").replaceWith("<div id = 'large1price' class = 'large1price'> $" + largeprices[0] + " </div>");
+      total = this_quant*largeprices[0];
+    }
+    if(this_quant >= 10 && this_quant < 100) {
+      $(".large1price").replaceWith("<div id = 'large1price' class = 'large1price'> $" + largeprices[1] + " </div>");
+      total = this_quant*largeprices[1];
+    }
+    if(this_quant >= 100) {
+      $(".large1price").replaceWith("<div id = 'large1price' class = 'large1price'> $" + largeprices[2] + " </div>");
+      total = this_quant*largeprices[2];
+    }
+
+    $(".large1total").replaceWith("<div id = 'large1total' class = 'large1total'> $"+ total+ " </div>");
+    $("#largesubtotal").replaceWith("<div id = 'largesubtotal' class = 'largesubtotal'> $"+
+        getSumTotal("large1total large2total large3total")+ " </div>");
+    updateInputSumTotal("large1quantity large2quantity large3quantity", "#largequantsubtotal");
+    $(".scalestotal").replaceWith("<div id = 'scalestotal' class = 'scalestotal'>"+
+        getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal")+ " </div>");
+    scalesTotal =  getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal");
+    $("#handlingtotal").replaceWith("<div class='item1' id='handlingtotal'> $"+ scalesTotal*handlingprice +" </div>");
+    $("#shippingtotal").replaceWith("<div class='item1' id='shippingtotal'> $"+ scalesTotal*shippingprice +" </div>");
+    $("#hardwarecost").replaceWith("<div class='item1' id='hardwarecost'> $" + getSumTotal("largesubtotal mediumsubtotal smallsubtotal minisubtotal interfacetotal") + "</div>");
+    $("#packagingshippingcost").replaceWith("<div class='item1' id='packagingshippingcost'> $"+ scalesTotal*(shippingprice + handlingprice) +" </div>");
+    $("#total").replaceWith("<div class='item1' id='total'> $" + getSumTotal("hardwarecost softwaretotal packagingshippingcost") + "</div>");
+  });
+  $("#large2quantity").keyup(function(event){
+    var this_quant = document.getElementById("large2quantity").value;
+    this_quant = parseInt(this_quant);
+    scalesTotal =  getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal");
+
+    if(this_quant < 10) {
+      $(".large2price").replaceWith("<div id = 'large2price' class = 'large2price'> $" + largeprices[0] + " </div>");
+      total = this_quant*largeprices[0];
+    }
+    if(this_quant >= 10 && this_quant < 100) {
+      $(".large2price").replaceWith("<div id = 'large2price' class = 'large2price'> $" + largeprices[1] + " </div>");
+      total = this_quant*largeprices[1];
+    }
+    if(this_quant >= 100) {
+      $(".large2price").replaceWith("<div id = 'large2price' class = 'large2price'> $" + largeprices[2] + " </div>");
+      total = this_quant*largeprices[2];
+    }
+
+    $(".large2total").replaceWith("<div id = 'large2total' class = 'large2total'> $"+ total+ " </div>");
+    $("#largesubtotal").replaceWith("<div id = 'largesubtotal' class = 'largesubtotal'> $"+
+        getSumTotal("large1total large2total large3total")+ " </div>");
+    updateInputSumTotal("large1quantity large2quantity large3quantity", "#largequantsubtotal");
+
+    $(".scalestotal").replaceWith("<div id = 'scalestotal' class = 'scalestotal'>"+
+        getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal")+ " </div>");
+    scalesTotal =  getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal");
+    $("#handlingtotal").replaceWith("<div class='item1' id='handlingtotal'> $"+ scalesTotal*handlingprice +" </div>");
+    $("#shippingtotal").replaceWith("<div class='item1' id='shippingtotal'> $"+ scalesTotal*shippingprice +" </div>");
+    $("#hardwarecost").replaceWith("<div class='item1' id='hardwarecost'> $" + getSumTotal("largesubtotal mediumsubtotal smallsubtotal minisubtotal interfacetotal") + "</div>");
+    $("#packagingshippingcost").replaceWith("<div class='item1' id='packagingshippingcost'> $"+ scalesTotal*(shippingprice + handlingprice) +" </div>");
+    $("#total").replaceWith("<div class='item1' id='total'> $" + getSumTotal("hardwarecost softwaretotal packagingshippingcost") + "</div>");
+  });
+  $("#large3quantity").keyup(function(event){
+    var this_quant = document.getElementById("large3quantity").value;
+    this_quant = parseInt(this_quant);
+    scalesTotal =  getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal");
+
+    if(this_quant < 10) {
+      $(".large3price").replaceWith("<div id = 'large3price' class = 'large3price'> $" + largeprices[0] + " </div>");
+      total = this_quant*largeprices[0];
+    }
+    if(this_quant >= 10 && this_quant < 100) {
+      $(".large3price").replaceWith("<div id = 'large3price' class = 'large3price'> $" + largeprices[1] + " </div>");
+      total = this_quant*largeprices[1];
+    }
+    if(this_quant >= 100) {
+      $(".large3price").replaceWith("<div id = 'large3price' class = 'large3price'> $" + largeprices[2] + " </div>");
+      total = this_quant*largeprices[2];
+    }
+
+    $(".large3total").replaceWith("<div id = 'large3total' class = 'large3total'> $"+ total+ " </div>");
+    $("#largesubtotal").replaceWith("<div id = 'largesubtotal' class = 'largesubtotal'> $"+
+        getSumTotal("large1total large2total large3total")+ " </div>");
+    updateInputSumTotal("large1quantity large2quantity large3quantity", "#largequantsubtotal");
+    $(".scalestotal").replaceWith("<div id = 'scalestotal' class = 'scalestotal'>"+
+        getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal")+ " </div>");
+    scalesTotal =  getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal");
+    $("#handlingtotal").replaceWith("<div class='item1' id='handlingtotal'> $"+ scalesTotal*handlingprice +" </div>");
+    $("#shippingtotal").replaceWith("<div class='item1' id='shippingtotal'> $"+ scalesTotal*shippingprice +" </div>");
+    $("#hardwarecost").replaceWith("<div class='item1' id='hardwarecost'> $" + getSumTotal("largesubtotal mediumsubtotal smallsubtotal minisubtotal interfacetotal") + "</div>");
+    $("#packagingshippingcost").replaceWith("<div class='item1' id='packagingshippingcost'> $"+ scalesTotal*(shippingprice + handlingprice) +" </div>");
+    $("#total").replaceWith("<div class='item1' id='total'> $" + getSumTotal("hardwarecost softwaretotal packagingshippingcost") + "</div>");
+
+  });
+
+
+
+  $("#medium1quantity").keyup(function(event){
+    var this_quant = document.getElementById("medium1quantity").value;
+    this_quant = parseInt(this_quant);
+    scalesTotal =  getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal");
+
+    if(this_quant < 10) {
+      $(".medium1price").replaceWith("<div id = 'medium1price' class = 'medium1price'> $" + mediumprices[0] + " </div>");
+      total = this_quant*mediumprices[0];
+    }
+    if(this_quant >= 10 && this_quant < 100) {
+      $(".medium1price").replaceWith("<div id = 'medium1price' class = 'medium1price'> $" + mediumprices[1] + " </div>");
+      total = this_quant*mediumprices[1];
+    }
+    if(this_quant >= 100) {
+      $(".medium1price").replaceWith("<div id = 'medium1price' class = 'medium1price'> $" + mediumprices[2] + " </div>");
+      total = this_quant*mediumprices[2];
+    }
+
+    $(".medium1total").replaceWith("<div id = 'medium1total' class = 'medium1total'> $"+ total+ " </div>");
+    $("#mediumsubtotal").replaceWith("<div id = 'mediumsubtotal' class = 'mediumsubtotal'> $"+
+        getSumTotal("medium1total medium2total medium3total")+ " </div>");
+    updateInputSumTotal("medium1quantity medium2quantity medium3quantity", "#mediumquantsubtotal");
+    $(".scalestotal").replaceWith("<div id = 'scalestotal' class = 'scalestotal'>"+
+        getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal")+ " </div>");
+    scalesTotal =  getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal");
+    $("#handlingtotal").replaceWith("<div class='item1' id='handlingtotal'> $"+ scalesTotal*handlingprice +" </div>");
+    $("#shippingtotal").replaceWith("<div class='item1' id='shippingtotal'> $"+ scalesTotal*shippingprice +" </div>");
+    $("#hardwarecost").replaceWith("<div class='item1' id='hardwarecost'> $" + getSumTotal("largesubtotal mediumsubtotal smallsubtotal minisubtotal interfacetotal") + "</div>");
+    $("#packagingshippingcost").replaceWith("<div class='item1' id='packagingshippingcost'> $"+ scalesTotal*(shippingprice + handlingprice) +" </div>");
+    $("#total").replaceWith("<div class='item1' id='total'> $" + getSumTotal("hardwarecost softwaretotal packagingshippingcost") + "</div>");
+
+  });
+  $("#medium2quantity").keyup(function(event){
+    var this_quant = document.getElementById("medium2quantity").value;
+    this_quant = parseInt(this_quant);
+    scalesTotal =  getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal");
+
+    if(this_quant < 10) {
+      $(".medium2price").replaceWith("<div id = 'medium2price' class = 'medium2price'> $" + mediumprices[0] + " </div>");
+      total = this_quant*mediumprices[0];
+    }
+    if(this_quant >= 10 && this_quant < 100) {
+      $(".medium2price").replaceWith("<div id = 'medium2price' class = 'medium2price'> $" + mediumprices[1] + " </div>");
+      total = this_quant*mediumprices[1];
+    }
+    if(this_quant >= 100) {
+      $(".medium2price").replaceWith("<div id = 'medium2price' class = 'medium2price'> $" + mediumprices[2] + " </div>");
+      total = this_quant*mediumprices[2];
+    }
+
+    $(".medium2total").replaceWith("<div id = 'medium2total' class = 'medium2total'> $"+ total+ " </div>");
+    $("#mediumsubtotal").replaceWith("<div id = 'mediumsubtotal' class = 'mediumsubtotal'>"+
+        getSumTotal("medium1total medium2total medium3total")+ " </div>");
+    updateInputSumTotal("medium1quantity medium2quantity medium3quantity",  "#mediumquantsubtotal");
+    $(".scalestotal").replaceWith("<div id = 'scalestotal' class = 'scalestotal'>"+
+        getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal")+ " </div>");
+    scalesTotal =  getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal");
+    $("#handlingtotal").replaceWith("<div class='item1' id='handlingtotal'> $"+ scalesTotal*handlingprice +" </div>");
+    $("#shippingtotal").replaceWith("<div class='item1' id='shippingtotal'> $"+ scalesTotal*shippingprice +" </div>");
+    $("#hardwarecost").replaceWith("<div class='item1' id='hardwarecost'> $" +   getSumTotal("largesubtotal mediumsubtotal smallsubtotal minisubtotal interfacetotal") + "</div>");
+    $("#packagingshippingcost").replaceWith("<div class='item1' id='packagingshippingcost'> $"+ scalesTotal*(shippingprice + handlingprice) +" </div>");
+    $("#total").replaceWith("<div class='item1' id='total'> $" + getSumTotal("hardwarecost softwaretotal packagingshippingcost") + "</div>");
+
+  });
+
+  $("#medium3quantity").keyup(function(event){
+    var this_quant = document.getElementById("medium3quantity").value;
+    this_quant = parseInt(this_quant);
+    scalesTotal =  getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal");
+
+    if(this_quant < 10) {
+      $(".medium3price").replaceWith("<div id = 'medium3price' class = 'medium3price'> $" + mediumprices[0] + " </div>");
+      total = this_quant*mediumprices[0];
+    }
+    if(this_quant >= 10 && this_quant < 100) {
+      $(".medium3price").replaceWith("<div id = 'medium3price' class = 'medium3price'> $" + mediumprices[1] + " </div>");
+      total = this_quant*mediumprices[1];
+    }
+    if(this_quant >= 100) {
+      $(".medium3price").replaceWith("<div id = 'medium3price' class = 'medium3price'> $" + mediumprices[2] + " </div>");
+      total = this_quant*mediumprices[2];
+    }
+
+    $(".medium3total").replaceWith("<div id = 'medium3total' class = 'medium3total'> $"+ total+ " </div>");
+    $("#mediumsubtotal").replaceWith("<div id = 'mediumsubtotal' class = 'mediumsubtotal'>"+
+        getSumTotal("medium1total medium2total medium3total")+ " </div>");
+    updateInputSumTotal("medium1quantity medium2quantity medium3quantity",  "#mediumquantsubtotal");
+    $(".scalestotal").replaceWith("<div id = 'scalestotal' class = 'scalestotal'>"+
+        getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal")+ " </div>");
+    scalesTotal =  getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal");
+    $("#handlingtotal").replaceWith("<div class='item1' id='handlingtotal'> $"+ scalesTotal*handlingprice +" </div>");
+    $("#shippingtotal").replaceWith("<div class='item1' id='shippingtotal'> $"+ scalesTotal*shippingprice +" </div>");
+    $("#hardwarecost").replaceWith("<div class='item1' id='hardwarecost'> $" + getSumTotal("largesubtotal mediumsubtotal smallsubtotal minisubtotal interfacetotal") + "</div>");
+    $("#packagingshippingcost").replaceWith("<div class='item1' id='packagingshippingcost'> $"+ scalesTotal*(shippingprice + handlingprice) +" </div>");
+    $("#total").replaceWith("<div class='item1' id='total'> $" + getSumTotal("hardwarecost softwaretotal packagingshippingcost") + "</div>");
+
+  });
+
+
+  $("#small1quantity").keyup(function(event){
+    var this_quant = document.getElementById("small1quantity").value;
+    this_quant = parseInt(this_quant);
+    scalesTotal =  getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal");
+
+    if(this_quant < 10) {
+      $(".small1price").replaceWith("<div id = 'small1price' class = 'small1price'> $" + smallprices[0] + " </div>");
+      total = this_quant*smallprices[0];
+    }
+    if(this_quant >= 10 && this_quant < 100) {
+      $(".small1price").replaceWith("<div id = 'small1price' class = 'small1price'> $" + smallprices[1] + " </div>");
+      total = this_quant*smallprices[1];
+    }
+    if(this_quant >= 100) {
+      $(".small1price").replaceWith("<div id = 'small1price' class = 'small1price'> $" + smallprices[2] + " </div>");
+      total = this_quant*smallprices[2];
+    }
+
+    $(".small1total").replaceWith("<div id = 'small1total' class = 'small1total'> $"+ total+ " </div>");
+    $("#smallsubtotal").replaceWith("<div id = 'smallsubtotal' class = 'smallsubtotal'> $"+
+        getSumTotal("small1total small2total small3total")+ " </div>");
+    updateInputSumTotal("small1quantity small2quantity small3quantity", "#smallquantsubtotal");
+    $(".scalestotal").replaceWith("<div id = 'scalestotal' class = 'scalestotal'>"+
+        getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal")+ " </div>");
+    scalesTotal =  getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal");
+    $("#handlingtotal").replaceWith("<div class='item1' id='handlingtotal'> $"+ scalesTotal*handlingprice +" </div>");
+    $("#shippingtotal").replaceWith("<div class='item1' id='shippingtotal'> $"+ scalesTotal*shippingprice +" </div>");
+    $("#hardwarecost").replaceWith("<div class='item1' id='hardwarecost'> $" + getSumTotal("largesubtotal mediumsubtotal smallsubtotal minisubtotal interfacetotal") + "</div>");
+    $("#packagingshippingcost").replaceWith("<div class='item1' id='packagingshippingcost'> $"+ scalesTotal*(shippingprice + handlingprice) +" </div>");
+    $("#total").replaceWith("<div class='item1' id='total'> $" + getSumTotal("hardwarecost softwaretotal packagingshippingcost") + "</div>");
+
+  });
+  $("#small2quantity").keyup(function(event){
+    var this_quant = document.getElementById("small2quantity").value;
+    this_quant = parseInt(this_quant);
+    scalesTotal =  getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal");
+
+    if(this_quant < 10) {
+      $(".small2price").replaceWith("<div id = 'small2price' class = 'small2price'> $" + smallprices[0] + " </div>");
+      total = this_quant*smallprices[0];
+    }
+    if(this_quant >= 10 && this_quant < 100) {
+      $(".small2price").replaceWith("<div id = 'small2price' class = 'small2price'> $" + smallprices[1] + " </div>");
+      total = this_quant*smallprices[1];
+    }
+    if(this_quant >= 100) {
+      $(".small2price").replaceWith("<div id = 'small2price' class = 'small2price'> $" + smallprices[2] + " </div>");
+      total = this_quant*smallprices[2];
+    }
+
+    $(".small2total").replaceWith("<div id = 'small2total' class = 'small2total'> $"+ total+ " </div>");
+    $("#smallsubtotal").replaceWith("<div id = 'smallsubtotal' class = 'smallsubtotal'> $"+
+        getSumTotal("small1total small2total small3total")+ " </div>");
+    updateInputSumTotal("small1quantity small2quantity small3quantity", "#smallquantsubtotal");
+    $(".scalestotal").replaceWith("<div id = 'scalestotal' class = 'scalestotal'>"+
+        getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal")+ " </div>");
+    scalesTotal =  getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal");
+    $("#handlingtotal").replaceWith("<div class='item1' id='handlingtotal'> $"+ scalesTotal*handlingprice +" </div>");
+    $("#shippingtotal").replaceWith("<div class='item1' id='shippingtotal'> $"+ scalesTotal*shippingprice +" </div>");
+    $("#hardwarecost").replaceWith("<div class='item1' id='hardwarecost'> $" + getSumTotal("largesubtotal mediumsubtotal smallsubtotal minisubtotal interfacetotal") + "</div>");
+    $("#packagingshippingcost").replaceWith("<div class='item1' id='packagingshippingcost'> $"+ scalesTotal*(shippingprice + handlingprice) +" </div>");
+    $("#total").replaceWith("<div class='item1' id='total'> $" + getSumTotal("hardwarecost softwaretotal packagingshippingcost") + "</div>");
+
+  });
+  $("#small3quantity").keyup(function(event){
+    var this_quant = document.getElementById("small3quantity").value;
+    this_quant = parseInt(this_quant);
+    scalesTotal =  getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal");
+
+    if(this_quant < 10) {
+      $(".small3price").replaceWith("<div id = 'small3price' class = 'small3price'> $" + smallprices[0] + " </div>");
+      total = this_quant*smallprices[0];
+    }
+    if(this_quant >= 10 && this_quant < 100) {
+      $(".small3price").replaceWith("<div id = 'small3price' class = 'small3price'> $" + smallprices[1] + " </div>");
+      total = this_quant*smallprices[1];
+    }
+    if(this_quant >= 100) {
+      $(".small3price").replaceWith("<div id = 'small3price' class = 'small3price'> $" + smallprices[2] + " </div>");
+      total = this_quant*smallprices[2];
+    }
+
+    $(".small3total").replaceWith("<div id = 'small3total' class = 'small3total'> $"+ total+ " </div>");
+    $("#smallsubtotal").replaceWith("<div id = 'smallsubtotal' class = 'smallsubtotal'> $"+
+        getSumTotal("small1total small2total small3total")+ " </div>");
+    updateInputSumTotal("small1quantity small2quantity small3quantity", "#smallquantsubtotal");
+    $(".scalestotal").replaceWith("<div id = 'scalestotal' class = 'scalestotal'>"+
+        getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal")+ " </div>");
+    scalesTotal =  getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal");
+    $("#handlingtotal").replaceWith("<div class='item1' id='handlingtotal'> $"+ scalesTotal*handlingprice +" </div>");
+    $("#shippingtotal").replaceWith("<div class='item1' id='shippingtotal'> $"+ scalesTotal*shippingprice +" </div>");
+    $("#hardwarecost").replaceWith("<div class='item1' id='hardwarecost'> $" + getSumTotal("largesubtotal mediumsubtotal smallsubtotal minisubtotal interfacetotal") + "</div>");
+    $("#packagingshippingcost").replaceWith("<div class='item1' id='packagingshippingcost'> $"+ scalesTotal*(shippingprice + handlingprice) +" </div>");
+    $("#total").replaceWith("<div class='item1' id='total'> $" + getSumTotal("hardwarecost softwaretotal packagingshippingcost") + "</div>");
+
+  });
+
+  $("#mini1quantity").keyup(function(event){
+    var this_quant = document.getElementById("mini1quantity").value;
+    this_quant = parseInt(this_quant);
+    scalesTotal =  getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal");
+
+    if(this_quant < 15) {
+      $(".mini1price").replaceWith("<div id = 'mini1price' class = 'mini1price'> $" + miniprices[0] + " </div>");
+      total = this_quant*miniprices[0];
+    }
+    if(this_quant >= 15 && this_quant < 105) {
+      $(".mini1price").replaceWith("<div id = 'mini1price' class = 'mini1price'> $" + miniprices[1] + " </div>");
+      total = this_quant*miniprices[1];
+    }
+    if(this_quant >= 105) {
+      $(".mini1price").replaceWith("<div id = 'mini1price' class = 'mini1price'> $" + miniprices[2] + " </div>");
+      total = this_quant*miniprices[2];
+    }
+
+    $(".mini1total").replaceWith("<div id = 'mini1total' class = 'mini1total'> $"+ total+ " </div>");
+    $("#minisubtotal").replaceWith("<div id = 'minisubtotal' class = 'minisubtotal'> $"+
+        getSumTotal("mini1total mini2total mini3total")+ " </div>");
+    updateInputSumTotal("mini1quantity mini2quantity mini3quantity", "#miniquantsubtotal");
+    $(".scalestotal").replaceWith("<div id = 'scalestotal' class = 'scalestotal'>"+
+        getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal")+ " </div>");
+    scalesTotal =  getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal");
+    $("#handlingtotal").replaceWith("<div class='item1' id='handlingtotal'> $"+ scalesTotal*handlingprice +" </div>");
+    $("#shippingtotal").replaceWith("<div class='item1' id='shippingtotal'> $"+ scalesTotal*shippingprice +" </div>");
+    $("#hardwarecost").replaceWith("<div class='item1' id='hardwarecost'> $" + getSumTotal("largesubtotal mediumsubtotal smallsubtotal minisubtotal interfacetotal") + "</div>");
+    $("#packagingshippingcost").replaceWith("<div class='item1' id='packagingshippingcost'> $"+ scalesTotal*(shippingprice + handlingprice) +" </div>");
+    $("#total").replaceWith("<div class='item1' id='total'> $" + getSumTotal("hardwarecost softwaretotal packagingshippingcost") + "</div>");
+
+  });
+
+  $("#mini2quantity").keyup(function(event){
+    var this_quant = document.getElementById("mini2quantity").value;
+    this_quant = parseInt(this_quant);
+    scalesTotal =  getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal");
+
+    if(this_quant < 15) {
+      $(".mini2price").replaceWith("<div id = 'mini2price' class = 'mini2price'> $" + miniprices[0] + " </div>");
+      total = this_quant*miniprices[0];
+    }
+    if(this_quant >= 15 && this_quant < 105) {
+      $(".mini2price").replaceWith("<div id = 'mini2price' class = 'mini2price'> $" + miniprices[1] + " </div>");
+      total = this_quant*miniprices[1];
+    }
+    if(this_quant >= 105) {
+      $(".mini2price").replaceWith("<div id = 'mini2price' class = 'mini2price'> $" + miniprices[2] + " </div>");
+      total = this_quant*miniprices[2];
+    }
+
+    $(".mini2total").replaceWith("<div id = 'mini2total' class = 'mini2total'> $"+ total+ " </div>");
+    $("#minisubtotal").replaceWith("<div id = 'minisubtotal' class = 'minisubtotal'> $"+
+        getSumTotal("mini1total mini2total mini3total")+ " </div>");
+    updateInputSumTotal("mini1quantity mini2quantity mini3quantity", "#miniquantsubtotal");
+    $(".scalestotal").replaceWith("<div id = 'scalestotal' class = 'scalestotal'>"+
+        getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal")+ " </div>");
+    scalesTotal =  getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal");
+    $("#handlingtotal").replaceWith("<div class='item1' id='handlingtotal'> $"+ scalesTotal*handlingprice +" </div>");
+    $("#shippingtotal").replaceWith("<div class='item1' id='shippingtotal'> $"+ scalesTotal*shippingprice +" </div>");
+    $("#hardwarecost").replaceWith("<div class='item1' id='hardwarecost'> $" + getSumTotal("largesubtotal mediumsubtotal smallsubtotal minisubtotal interfacetotal") + "</div>");
+    $("#packagingshippingcost").replaceWith("<div class='item1' id='packagingshippingcost'> $"+ scalesTotal*(shippingprice + handlingprice) +" </div>");
+    $("#total").replaceWith("<div class='item1' id='total'> $" + getSumTotal("hardwarecost softwaretotal packagingshippingcost") + "</div>");
+
+  });
+
+  $("#mini3quantity").keyup(function(event){
+    var this_quant = document.getElementById("mini3quantity").value;
+    this_quant = parseInt(this_quant);
+    scalesTotal =  getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal");
+
+    if(this_quant < 15) {
+      $(".mini3price").replaceWith("<div id = 'mini3price' class = 'mini3price'> $" + miniprices[0] + " </div>");
+      total = this_quant*miniprices[0];
+    }
+    if(this_quant >= 15 && this_quant < 105) {
+      $(".mini3price").replaceWith("<div id = 'mini3price' class = 'mini3price'> $" + miniprices[1] + " </div>");
+      total = this_quant*miniprices[1];
+    }
+    if(this_quant >= 105) {
+      $(".mini3price").replaceWith("<div id = 'mini3price' class = 'mini3price'> $" + miniprices[2] + " </div>");
+      total = this_quant*miniprices[2];
+    }
+
+    $(".mini3total").replaceWith("<div id = 'mini3total' class = 'mini3total'> $"+ total+ " </div>");
+    $("#minisubtotal").replaceWith("<div id = 'minisubtotal' class = 'minisubtotal'> $"+
+        getSumTotal("mini1total mini2total mini3total")+ " </div>");
+    updateInputSumTotal("mini1quantity mini2quantity mini3quantity", "#miniquantsubtotal");
+    $(".scalestotal").replaceWith("<div id = 'scalestotal' class = 'scalestotal'>"+
+        getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal")+ " </div>");
+    scalesTotal =  getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal");
+    $("#handlingtotal").replaceWith("<div class='item1' id='handlingtotal'> $"+ scalesTotal*handlingprice +" </div>");
+    $("#shippingtotal").replaceWith("<div class='item1' id='shippingtotal'> $"+ scalesTotal*shippingprice +" </div>");
+    $("#hardwarecost").replaceWith("<div class='item1' id='hardwarecost'> $" + getSumTotal("largesubtotal mediumsubtotal smallsubtotal minisubtotal interfacetotal") + "</div>");
+    $("#packagingshippingcost").replaceWith("<div class='item1' id='packagingshippingcost'> $"+ scalesTotal*(shippingprice + handlingprice) +" </div>");
+    $("#total").replaceWith("<div class='item1' id='total'> $" + getSumTotal("hardwarecost softwaretotal packagingshippingcost") + "</div>");
+
+  });
+
+
+
+  $(".interface").keyup(function(event){
+    var this_quant = document.getElementById("interfacequantity").value;
+    this_quant = parseInt(this_quant);
+    scalesTotal =  getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal");
+    if (this_quant * 12 < scalesTotal) {
+      alert("One interface for every 12 scales is necessary.");
+      return;
+    }
+    if(this_quant < 20) {
+      $(".interfaceprice").replaceWith("<div class = 'interfaceprice'> $" + interfaceprices[0] + " </div>");
+      total = this_quant*interfaceprices[0];
+    }
+    if(this_quant >= 20 && this_quant < 50) {
+      $(".interfaceprice").replaceWith("<div class = 'interfaceprice'> $" + interfaceprices[1] + " </div>");
+      total = this_quant*interfaceprices[1];
+    }
+    if(this_quant >= 50 && this_quant < 100) {
+      $(".interfaceprice").replaceWith("<div class = 'interfaceprice'> $" + interfaceprices[2] + " </div>");
+      total = this_quant*interfaceprices[2];
+    }
+    if(this_quant >= 100) {
+      $(".interfaceprice").replaceWith("<div class = 'interfaceprice'>" + interfaceprices[3] + " </div>");
+      total = this_quant*interfaceprices[3];
+    }
+    $(".interfacetotal").replaceWith("<div id = 'interfacetotal' class = 'interfacetotal'> $"+ total+ " </div>");
+    $("#handlingtotal").replaceWith("<div class='item1' id='handlingtotal'> $"+ scalesTotal*handlingprice +" </div>");
+    $("#shippingtotal").replaceWith("<div class='item1' id='shippingtotal'> $"+ scalesTotal*shippingprice +" </div>");
+    $("#hardwarecost").replaceWith("<div class='item1' id='hardwarecost'> $" + getSumTotal("largesubtotal mediumsubtotal smallsubtotal minisubtotal interfacetotal") + "</div>");
+    $("#packagingshippingcost").replaceWith("<div class='item1' id='packagingshippingcost'> $"+ scalesTotal*(shippingprice + handlingprice) +" </div>");
+    $("#total").replaceWith("<div class='item1' id='total'> $" + getSumTotal("hardwarecost softwaretotal packagingshippingcost") + "</div>");
+
+  });
+
+  $("#softwareyears").change(function(event){
+    var this_quant = $(this).children("option:selected").val();
+    this_quant = parseInt(this_quant);
+    var scalesTotal =  getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal");
+    if (this_quant == 1) {
+        $("#priceperbin").replaceWith("<div class = 'priceperbin' id = 'priceperbin'> $" + softwareprices[0] + " </div>");
+        total = scalesTotal * softwareprices[0];
+    }
+    if (this_quant == 2) {
+        $("#priceperbin").replaceWith("<div class = 'priceperbin' id = 'priceperbin'> $" + softwareprices[1] + " </div>");
+        total = scalesTotal * softwareprices[1];
+    }
+    if (this_quant == 3) {
+        $("#priceperbin").replaceWith("<div class = 'priceperbin' id = 'priceperbin'> $" + softwareprices[2] + " </div>");
+        total = scalesTotal * softwareprices[2];
+    }
+    if (this_quant >= 5) {
+        $("#priceperbin").replaceWith("<div class = 'priceperbin' id = 'priceperbin'> $" + softwareprices[3] + " </div>");
+        total = scalesTotal * softwareprices[3];
+    }
+
+    if (total < 250)
+      total = 250 * this_quant * 12;
+    else
+      total = total * this_quant * 12;
+    $(".softwaretotal").replaceWith("<div id = 'softwaretotal' class = 'softwaretotal'> $"+ total + " </div>");
+    $("#handlingtotal").replaceWith("<div class='item1' id='handlingtotal'> $"+ scalesTotal*handlingprice +" </div>");
+    $("#shippingtotal").replaceWith("<div class='item1' id='shippingtotal'> $"+ scalesTotal*shippingprice +" </div>");
+    $("#packagingshippingcost").replaceWith("<div class='item1' id='packagingshippingcost'> $"+ scalesTotal*(shippingprice + handlingprice) +" </div>");
+    $("#total").replaceWith("<div class='item1' id='total'> $" + getSumTotal("hardwarecost softwaretotal packagingshippingcost") + "</div>");
+
+  });
+
+  $(".scalestotal").change(function(event) {
+    var scalesTotal =  getSumTotal("miniquantsubtotal smallquantsubtotal mediumquantsubtotal largequantsubtotal");
+    $("#handlingtotal").replaceWith("<div class='item1' id='handlingtotal'> $"+ scalesTotal*handlingprice +" </div>");
+    $("#shippingtotal").replaceWith("<div class='item1' id='shippingtotal'> $"+ scalesTotal*shippingprice +" </div>");
+    $("#packagingshippingcost").replaceWith("<div class='item1' id='packagingshippingcost'> $"+ scalesTotal*(shippingprice + handlingprice) +" </div>");
+  });
+
+  $(".submit").click(function() {
+    var modal = document.getElementById("modal");
+    modal.style.display = "block";
+  });
+  $(".close").click(function() {
+    modal.style.display = "none";
+  });
+
+  function emailIsValid (email) {
+    return /\S+@\S+\.\S+/.test(email)
+  }
+
+  //sending forms
+  $(document).ready(function() {
+    $('#bt2').click(function() {
+      var name = $("#name").val();
+      var email = $("#email").val();
+      var phone = $("#phone").val();
+
+      $.ajax({
+        type: "POST",
+        url: "email.php",
+        data: dataString,
+        success: function(){
+          $('.success').fadeIn(1000);
+        }
+      });
+
+      return false;
+    });
+  });
+
+
+
+});
+
+</script>
+
+</html>
